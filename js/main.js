@@ -7,6 +7,8 @@ var chat_contacto = {contacto, mensaje};
 var mensaje = document.getElementById("mensajes");
 var roomChat = document.getElementById("chat");
 var lista = document.getElementsByClassName("w-recent-chats")[0].children;
+var chatProfile  = document.getElementsByClassName("w-chat-profile");
+
 
 window.addEventListener("load", cargarPagina);
 
@@ -45,7 +47,6 @@ function msjEnviado(e){
     msjDiv.appendChild(timeChat);
     wmsjOut.appendChild(msjDiv);
     roomChat.appendChild(wmsjOut);
-    //console.log(mensajeG);
     mensaje.value="";
   }
 };
@@ -56,16 +57,3 @@ function horaActual(){
   var minutos = tiempo.getMinutes();
   return hora + ":" + minutos;
 }
-var chatProfile  = document.getElementsByClassName("w-chat-profile");
-function cambiarHeader(){
- /* console.log(lista.length);
-  
-  lista[1].addEventListener("click", function(){
-  chatProfile[0].children[1].textContent = this.children[0].children[1].textContent;
-  chatProfile[0].children[2].innerHTML = this.children[0].children[2].innerHTML;
-  chatProfile[0].children[0].src = this.children[0].children[0].src;
-    
-  });*/
-
-  
-};  
