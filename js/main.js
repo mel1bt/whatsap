@@ -7,17 +7,26 @@ var chat_contacto = {contacto, mensaje};
 var mensaje = document.getElementById("mensajes");
 var roomChat = document.getElementById("chat");
 var lista = document.getElementsByClassName("w-recent-chats")[0].children;
-var listaP = document.getElementsByClassName("w-recent-chats");
 
 window.addEventListener("load", cargarPagina);
 
 function cargarPagina(){
   mensaje.addEventListener("keyup", msjEnviado);
+  var temporal;
+ console.log(lista[2]);
+  //console.log(chatProfile[0].children[1]);
+
+  for (var i = 0; i < lista.length; i++){
   
+    lista[i].addEventListener("click", crearEvento);
+  };
 };
-  
-  //lista.addEventListener("click", cambiarHeader);
-  cambiarHeader();
+
+function crearEvento(){
+  chatProfile[0].children[1].innerHTML = this.children[0].children[1].innerHTML;
+    chatProfile[0].children[2].innerHTML = this.children[0].children[2].innerHTML;
+    chatProfile[0].children[0].src = this.children[0].children[0].src;    
+};
   
 
 function msjEnviado(e){
@@ -49,15 +58,14 @@ function horaActual(){
 }
 var chatProfile  = document.getElementsByClassName("w-chat-profile");
 function cambiarHeader(){
+ /* console.log(lista.length);
+  
   lista[1].addEventListener("click", function(){
   chatProfile[0].children[1].textContent = this.children[0].children[1].textContent;
   chatProfile[0].children[2].innerHTML = this.children[0].children[2].innerHTML;
   chatProfile[0].children[0].src = this.children[0].children[0].src;
     
-  });
-};  
+  });*/
 
-listaP.addEventListener("click", ver);
-function ver(){
-  console.log(this);
-}
+  
+};  
