@@ -13,23 +13,20 @@ var chatProfile  = document.getElementsByClassName("w-chat-profile");
 window.addEventListener("load", cargarPagina);
 
 function cargarPagina(){
-  mensaje.addEventListener("keyup", msjEnviado);
-  var temporal;
- console.log(lista[2]);
-  //console.log(chatProfile[0].children[1]);
-
-  for (var i = 0; i < lista.length; i++){
-  
-    lista[i].addEventListener("click", crearEvento);
-  };
+    mensaje.addEventListener("keyup", msjEnviado);
+    for (var i = 0; i < lista.length; i++){
+        lista[i].addEventListener("click", chatContactos);
+    };
 };
 
-function crearEvento(){
-  chatProfile[0].children[1].innerHTML = this.children[0].children[1].innerHTML;
-    chatProfile[0].children[2].innerHTML = this.children[0].children[2].innerHTML;
-    chatProfile[0].children[0].src = this.children[0].children[0].src;    
+function chatContactos(){
+	chatProfile[0].children[1].innerHTML = this.children[0].children[1].innerHTML;
+    chatProfile[0].children[2].innerHTML = this.children[1].innerHTML;
+    chatProfile[0].children[0].src = this.children[0].children[0].src;  
+    for (var j = 0; j<roomChat.children.length;){
+      roomChat.children[j].remove();
+    }
 };
-  
 
 function msjEnviado(e){
   if (e.keyCode == 13){
@@ -48,7 +45,7 @@ function msjEnviado(e){
     wmsjOut.appendChild(msjDiv);
     roomChat.appendChild(wmsjOut);
     mensaje.value="";
-  }
+  };
 };
 
 function horaActual(){
